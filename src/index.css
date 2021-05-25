@@ -1,13 +1,396 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/*Root*/
+
+    :root {
+        --neoncolor: #56c0fd;
+        --glowcolor: #4e95ff;
+    }
+
+/*Fonts*/
+
+    @font-face {
+        font-family: 'neonregular';
+        src: url(/src/fonts/neon____-webfont.woff2) format('woff2'),
+            url(/src/fonts/neon____-webfont.woff) format('woff');
+        font-weight: normal;
+        font-style: normal;
+
+    }
+
+/*Body*/
+
+    .body {
+        background-image:url(/src/images/background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+/*Header*/
+
+    .header {
+        /*Position*/
+        position: absolute;
+        z-index: -1;
+        /*Size*/
+            width: 100%;
+            height: 100px;
+        /*Background*/
+            background: rgb(12,12,59);
+            background: radial-gradient(circle, rgb(6, 6, 44) 0%, rgba(0,0,0,1) 45%);
+        /*Border*/
+            border-bottom: 1px solid var(--neoncolor);
+            box-shadow: inset 0 -7px 4px -7px var(--glowcolor), 0 0 4px var(--glowcolor);
+    }
+    .logo__container {
+        /*Size & Position*/
+        width: 80%;
+        height: 100px;
+        margin-left: 10%;
+        /*Display*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo {
+        /*Style*/
+            color: var(--neoncolor);
+            font-family: 'neonregular';
+            text-shadow: 0px 0px 7px var(--glowcolor);
+            font-size: 3rem;
+        /*Size*/
+            width: 665px;
+            height: 100px;
+        /*Position*/
+            margin-top: 40px;
+        /*Animation*/
+            animation: glow 15s linear infinite;
+    }
+
+/*Nav*/
+
+    /*Navbar Toggle Button*/
+        .nav__toggle__btn {
+            /*Position*/
+                position: absolute;
+                top: 30px;
+                left: 20px;
+            /*Style*/
+                background: none;
+                border: none;
+                font-size: 2rem;
+                color: var(--neoncolor);
+                text-shadow: 0px 0px 7px var(--glowcolor);
+        }
+        .nav__toggle__btn:hover {
+            border: 2px solid var(--neoncolor);
+            box-shadow: 0px 0px 7px var(--glowcolor), inset 0px 0px 7px var(--glowcolor);
+            margin-top: -1.5px;
+            margin-left: -1.5px;
+        }
+    /*Navbar*/
+        .nav__ul {
+            /*Size*/
+                width: 100%;
+                height: 100px;
+            /*Background*/
+                background-image: url(/src/images/Neon\ Grid.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            /*Style*/
+                border-bottom: 1px solid var(--neoncolor);
+                border-top: 1px solid var(--neoncolor);
+                box-shadow: inset 0 -7px 4px -7px var(--glowcolor), 0 0 4px var(--glowcolor);
+            /*Display*/
+                display: none;
+                justify-content: space-evenly;
+                align-items: center;
+            /*Animation*/
+                animation: open-nav 0.25s linear normal;
+        }
+        .showNav {
+            display: flex !important;
+        }
+        .nav__a {
+            /*Size*/
+                height: 37px;
+                padding: 0.2em;
+            /*Style*/
+                font-family:sans-serif;
+                font-size: 2rem;
+                color: var(--neoncolor);
+                text-decoration: none;
+                text-shadow: 0px 0px 5px var(--glowcolor);
+                border: solid 2px var(--neoncolor);
+                box-shadow: inset 0 0 5px var(--glowcolor), 0 0 5px var(--glowcolor);
+            /*Background*/
+                background: rgb(12,12,59);
+                background: radial-gradient(circle, rgb(6, 6, 44) 0%, rgba(0,0,0,1) 45%);
+            /*Animation*/
+                animation: visibility 0.25s linear normal;   
+        }
+        .nav__a:hover {
+            text-decoration: underline 2px;
+            font-size: 2.5rem;
+        }
+
+/*Modal*/
+    
+    /*Modal Backdrop*/
+        .modal {
+            /*Display*/
+                display: none;
+                justify-content: center;
+                align-items: center;
+            /*Position*/
+                position: absolute;
+                z-index: 1;
+            /*Size*/
+                height: 100%;
+                width: 100%;
+            /*Background*/
+                background-color: rgba(0, 0, 0, 0.5);
+        }
+        .showModal {
+            display: flex !important;
+        }
+    /*Modal Box*/
+        .modal__content {
+            /*Display*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            /*Size*/
+                width: 30em;
+                height: 30em;
+                border: solid 3px var(--neoncolor);
+                box-shadow: inset 0 0 5px var(--glowcolor), 0 0 5px var(--glowcolor);
+                background-image: url(/src/images/Neon\ Grid.jpg);
+                background-position: center;
+            /*Animation*/
+                animation: open-modal .5s linear normal;
+        }
+    /*Modal Close Button*/
+        .modal__close__btn {
+            /*Position*/
+                position: relative;
+                left: -5%;
+                margin-top: 80%;
+            /*Style*/
+                border: none;
+                font-size: 2rem;
+                color: var(--neoncolor);
+                text-shadow: 0px 0px 7px var(--glowcolor);
+                border: 2px solid var(--neoncolor);
+                box-shadow: 0px 0px 7px var(--glowcolor), inset 0px 0px 7px var(--glowcolor);
+            /*Background*/
+                background: rgb(12,12,59);
+                background: radial-gradient(circle, rgb(6, 6, 44) 0%, rgba(0,0,0,1) 45%);
+            /*Animation*/
+                animation: visibility 0.55s linear normal;
+        }
+        .modal__close__btn:hover {
+            text-decoration: underline;
+        }
+    /*Modal Form*/
+        .modal__form {
+            /*Size*/
+                width: 100%;
+                height: 80%;
+            /*Position*/
+                margin-top: 10%;
+            /*Display*/
+                display: flex;
+                justify-content: space-around;
+                flex-flow: column;
+            /*Animation*/
+                animation: visibility 0.5s linear normal;
+        }
+        .modal__input__container {
+            /*Display*/
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: column;
+                align-items: center;
+            /*Size*/
+                height: 50%;
+        }
+        .modal__input__subbox {
+            /*Size*/
+                width: 70%;
+        }
+        .modal__label {
+            /*Size*/
+                height: 90px;
+                width: 100%;
+            /*Style*/
+                font-family:sans-serif;
+                font-size: 2rem;
+                color: var(--neoncolor);
+                text-decoration: none;
+                text-shadow: 0px 0px 5px var(--glowcolor);
+            /*Animation*/
+                animation: flicker-two 1s linear infinite;
+            }
+        .modal__input {
+            /*Size*/ 
+                height: 40px;
+                width: 100%;
+            /*Style*/
+                font-family: sans-serif;
+                font-size: 1.5rem;
+                color: var(--neoncolor);
+                text-shadow: 0px 0px 5px var(--glowcolor);
+                border: solid 2px var(--neoncolor);
+                box-shadow: inset 0 0 5px var(--glowcolor), 0 0 5px var(--glowcolor);
+                background: rgb(12,12,59);
+                background: radial-gradient(circle, rgb(6, 6, 44) 0%, rgba(0,0,0,1) 45%);      
+        }
+        .modal__submit__btn {
+            /*Size*/
+                height: 13%;
+                width: 35%;
+            /*Position*/
+                align-self: center;
+                justify-self: start;
+                margin-bottom: 20%;
+            /*Style*/
+                border: none;
+                font-size: 2rem;
+                color: var(--neoncolor);
+                text-shadow: 0px 0px 7px var(--glowcolor);
+                border: 2px solid var(--neoncolor);
+                box-shadow: 0px 0px 7px var(--glowcolor), inset 0px 0px 7px var(--glowcolor);
+            /*Background*/  
+                background: rgb(12,12,59);
+                background: radial-gradient(circle, rgb(6, 6, 44) 0%, rgba(0,0,0,1) 45%);
+        }
+        .modal__submit__btn:hover {
+            text-decoration: underline;
+        }
+/*Modal Enter Button*/
+    .modal__btn {
+        /*Position*/
+            position: absolute;
+            top: 40%;
+            left: 40%;
+        /*Style*/
+            font-family: 'Libre Barcode EAN13 Text';
+            color: var(--neoncolor);
+            background: none;
+            border: none;
+            text-shadow: 0px 0px 5px var(--glowcolor);
+            font-size: 4rem;
+            animation: flicker 3s linear infinite;
+    }
+    .modal__btn:hover {
+        font-family: 'zen dots';
+        font-size: 2rem;
+        margin-top: 15px;
+        animation: flicker-two 1s linear infinite;
+    }
+/*Modal Enter Button Content*/
+    .click__span {
+        content: "";
+    }
+    .click__span:after {
+        content: "Click ";
+    }
+    .modal__btn:hover .click__span:after {
+        content: "";
+    }
+    .hereto__span {
+        content: "";
+    }
+    .hereto__span::after {
+        content: "here to";
+    }
+    .modal__btn:hover .hereto__span::after {
+        content: "";
+    }
+
+/*Animations (very sloppy work)*/
+
+    /*Header Glow*/
+        @keyframes glow {
+            0% {filter: brightness(90%);}
+            24% {filter: brightness(105%); filter: blur(0px);}
+            25% {filter: brightness(1000%); filter: blur(1px);}
+            26% {filter: brightness(100%); filter: blur(0px);}
+            47% {filter: brightness(115%); filter: blur(0px);}
+            48% {filter: brightness(1000%); filter: blur(1px);}
+            49% {filter: brightness(115%); filter: blur(0px);}
+            50% {filter: brightness(70%);}
+            51% {filter: brightness(100%);}
+            74% {filter: brightness(100%); filter: blur(0px);}
+            75% {filter: brightness(1000%); filter: blur(1px);}
+            76% {filter: brightness(100%); filter: blur(0px);}
+        }
+
+    /*Barcode Flicker*/
+        @keyframes flicker {
+            0%{opacity: 0;}
+            1%{opacity: 1;}
+            14%{opacity: 1;}        
+            15%{opacity: 0;}
+            16%{opacity: 1;}
+            32%{opacity: 1; transform: skew(0deg);}
+            33%{opacity: 0; transform: skew(4deg);}
+            34%{opacity: 1; transform: skewY(0deg);}
+            44%{opacity: 1;}
+            45%{opacity: 0;}
+            46%{opacity: 1;}
+            65%{opacity: 1; transform: skewX(0deg);}
+            66%{opacity: 0; transform: skewX(30deg);}
+            67%{opacity: 1; transform: skewX(0deg);}
+            80%{opacity: 1; transform: skew(0deg);}
+            81%{opacity: 1; transform: skew(70deg);}
+            82%{opacity: 0; transform: skew(0deg);}
+            93%{opacity: 0;}
+            94%{opacity: 1;}
+            100%{opacity: 1;}
+        }
+
+    /*Modal Buttons Flicker*/
+        @keyframes flicker-two {
+            0%{opacity: 1;}
+            1%{opacity: 0.8;}
+            2%{opacity: 1;}
+            9%{opacity: 1;}
+            10%{opacity: 0.8;}
+            11%{opacity: 1;}
+            29%{opacity: 1;}
+            30%{opacity: 0.8;}
+            31%{opacity: 1;}
+            49%{opacity: 1;}
+            50%{opacity: 0.8;}
+            51%{opacity: 1;}
+            69%{opacity: 1;}
+            70%{opacity: 0.8;}
+            71%{opacity: 1;}
+            89%{opacity: 1;}
+            90%{opacity: 0.8;}
+            91%{opacity: 1;}
+            98%{opacity: 1;}
+            99%{opacity: 0.8;}
+            100%{opacity: 1;}
+        }
+
+/*Nav Open and Close*/
+    @keyframes open-nav {
+        0%{height:0px;}
+        100%{height: 100px;}
+    }
+    @keyframes visibility {
+        0%{opacity: 0;}
+        80%{opacity: 0;}
+        100%{opacity: 1;}
+
+    }
+
+/*Modal Open and Close*/
+
+    @keyframes open-modal {
+        0%{height:0em; width: 0em;}
+        50%{height: 0em; width: 30em;}
+        100%{height: 30em; width: 30em;}
+    }
